@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Routeur -->
+
+<web-app version="4.0" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<display-name>point-comedie</display-name>
+
+<servlet>
+	<servlet-name>Accueil</servlet-name>
+	<servlet-class>controllers.Index</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>Accueil</servlet-name>
+	<url-pattern>/Accueil</url-pattern>
+</servlet-mapping>
+
+<welcome-file-list>
+	<welcome-file>Accueil</welcome-file>
+</welcome-file-list>
+
+
+<error-page>
+	<error-code>404</error-code>
+	<location>/WEB-INF/error.jsp</location>
+</error-page>
+
+</web-app>

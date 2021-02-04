@@ -1,0 +1,32 @@
+User-agent: *
+
+# On empêche l'indexation des dossiers sensibles
+Disallow: /css
+
+# On désindexe tous les URL ayant des paramètres (duplication de contenu)
+Disallow: /*?*
+Disallow: /*?
+
+# On autorise l'indexation des images
+Allow: /img
+
+User-agent: Googlebot
+# On empêche l'indexation des fichiers sensibles
+Disallow: /traitement.php$
+Disallow: /data.php$
+Disallow: /*.inc$
+Disallow: /*.gz$
+Disallow: /aurorebressano.pdf$
+
+# Autoriser Google Image
+User-agent: Googlebot-Image
+Disallow:
+Allow: /*
+
+# Autoriser Google AdSense
+User-agent: Mediapartners-Google*
+Disallow:
+Allow: /*
+
+# On indique au spider le lien vers notre sitemap
+Sitemap: https://integratriceweb.fr/sitemap.xml
