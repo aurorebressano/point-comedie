@@ -6,16 +6,6 @@
 
 <display-name>point-comedie</display-name>
 
-<servlet>
-	<servlet-name>Accueil</servlet-name>
-	<servlet-class>controllers.Index</servlet-class>
-</servlet>
-
-<servlet-mapping>
-	<servlet-name>Accueil</servlet-name>
-	<url-pattern>/Accueil</url-pattern>
-</servlet-mapping>
-
 <welcome-file-list>
 	<welcome-file>Accueil</welcome-file>
 </welcome-file-list>
