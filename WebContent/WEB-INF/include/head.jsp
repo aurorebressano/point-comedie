@@ -169,8 +169,19 @@
                         <li><a href="#">Théâtres</a></li>
                         <li><a href="#">Comédiens</a>
                         </li>
-                        <li><a href="#">Spectacles</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Spectacles</a>
+						 <ul class="dropdown">
+                                <li><a href="#">Rechercher </a></li>
+                                <li><a href="#">Mes favoris</a></li>
+                      
+                            </ul> </li>
+                        
+                      						<li><a href="./contact.html">Contact</a>
+						 <ul class="dropdown">
+                                <li><a  href="#">Qui sommes-nous ?</a></li>
+                             
+                      
+                            </ul></li>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>
