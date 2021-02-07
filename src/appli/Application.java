@@ -15,8 +15,15 @@ public class Application {
 	 */
 	public ArrayList<LocalDateTime> rechercherDatesDispo() {
 		
-		// je recupere les dates entrees par l'utilisateur
+		// je recupere les dates entrees par l'utilisateur (pour l'instant en dur)
 		//TODO recuperer les dates entrées par l'utilisateur sur la page adminTheatre.jsp
+		int endDay = 7;
+		ArrayList<LocalDate> dates = new ArrayList<LocalDate>();
+		LocalDate start = LocalDate.of(2021, 1, 1);
+		LocalDate end = LocalDate.of(2021, 2, endDay + 1);
+		dates = getDatesRange(start, end);
+		
+		// je recupere les dates des representations 
 		
 		
 		ArrayList<LocalDateTime> datesDispo = new ArrayList<LocalDateTime>();
