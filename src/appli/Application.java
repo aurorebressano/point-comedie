@@ -31,7 +31,7 @@ public class Application {
 	 * 
 	 * @return (<b><i>datesRange</i></b>) la liste des dates qui se situent entre <b><i>start</i></b> et <b><i>end</i></b>
 	 */
-	public static ArrayList<LocalDate> datesRange (LocalDate start, LocalDate end) {
+	public static ArrayList<LocalDate> getDatesRange (LocalDate start, LocalDate end) {
 		
 		ArrayList<LocalDate> dates = new ArrayList<LocalDate>();
 		
