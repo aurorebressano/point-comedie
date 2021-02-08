@@ -1,5 +1,7 @@
 package metier;
 
+import java.util.ArrayList;
+
 public abstract class Spectacle {
 
 	// propriétés d'instance
@@ -8,6 +10,8 @@ public abstract class Spectacle {
 	private String theme;
 	private String duree;
 	private String cheminImage;
+	private ArrayList<Artiste> artistes;
+	private Salle salle;
 	
 	// getters
 	public String getTitre() {
@@ -25,6 +29,12 @@ public abstract class Spectacle {
 	public String getCheminImage() {
 		return cheminImage;
 	}
+	public ArrayList<Artiste> getArtistes() {
+		return artistes;
+	}
+	public Salle getSalle() {
+		return salle;
+	}
 	
 	// setters
 	public void setTitre(String titre) {
@@ -41,6 +51,12 @@ public abstract class Spectacle {
 	}
 	public void setCheminImage(String cheminImage) {
 		this.cheminImage = cheminImage;
+	}
+	public void setArtistes(ArrayList<Artiste> artistes) {
+		this.artistes = artistes;
+	}
+	public void setSalle(Salle salle) {
+		this.salle = salle;
 	}
 	
 	
