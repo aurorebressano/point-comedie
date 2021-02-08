@@ -11,6 +11,7 @@ public class Salle {
 	// prorpietes d'instance
 	private String nom;
 	private int jauge;
+	private Theatre theatre;
 	
 	// methode
 	/**
@@ -52,9 +53,15 @@ public class Salle {
 	protected int getJauge() {
 		return jauge;
 	}
+	public Theatre getTheatre() {
+		return theatre;
+	}
 	
 	// setters
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+	public void setTheatre(Theatre theatre) {
+		this.theatre = theatre;
 	}
 }
