@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import appli.Application;
+import appli.exception.NullStartDateException;
+import appli.exception.WrongIntervalException;
 import dao.Dao;
 
 public class Salle {
@@ -20,16 +22,22 @@ public class Salle {
 	 * 
 	 * @return (<b><i>datesDispo</i></b>) la liste des dates disponibles
 	 */
-	public ArrayList<LocalDate> rechercherDatesDispo(LocalDate start, LocalDate end) {
+	public ArrayList<LocalDate> rechercherDatesDispo(LocalDate start, LocalDate end) 
+			throws NullStartDateException, WrongIntervalException 
+	{
 		
 		// je recupere l'intervalle de dates entre par l'utilisateur (pour l'instant en dur)
 		//TODO recuperer l'intervalle entre par l'utilisateur sur la page adminTheatre.jsp
 		if (start == null) {
-			start = LocalDate.now();
+			throw new NullStartDateException("La date de début ne peut pas être nulle.");
 		} 
 		
-		if(end == null) {
-			end = LocalDate.now().plusMonths(3);
+		if (end == null) {
+			end = start.plusMonths(3);
+		}
+		
+		if (end.isBefore(start)) {
+			throw new WrongIntervalException("La date de fin ne doit pas être antérieure à la date de début.");
 		}
 		
 		ArrayList<LocalDate> interval = Application.getDatesRange(start, end);
