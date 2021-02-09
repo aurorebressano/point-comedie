@@ -20,19 +20,39 @@ public class Salle {
 	 * 
 	 * @return (<b><i>datesDispo</i></b>) la liste des dates disponibles
 	 */
-	public ArrayList<LocalDate> rechercherDatesDispo() {
+	public ArrayList<LocalDate> rechercherDatesDispo(LocalDate start, LocalDate end) {
 		
 		// je recupere l'intervalle de dates entre par l'utilisateur (pour l'instant en dur)
 		//TODO recuperer l'intervalle entre par l'utilisateur sur la page adminTheatre.jsp
-		int endDay = 8;
-		LocalDate start = LocalDate.of(2021, 4, 1);
-		LocalDate end = LocalDate.of(2021, 4, endDay + 1);
+		if (start == null) {
+			start = LocalDate.now();
+		} 
+		
+		if(end == null) {
+			end = LocalDate.now().plusMonths(3);
+		}
+		
 		ArrayList<LocalDate> interval = Application.getDatesRange(start, end);
 
 		// je recupere les dates des representations dans la dao
-		ArrayList<Representation> representations = Dao.representations;	
+		ArrayList<Representation> representations = Dao.getRepresentations();
 
-		// pour chaque date de représentation, je cherche la date de l'intervalle qui lui correspond et je la supprime de la liste des dates de l'intervalle
+		// je filtre la liste des dates pour ne garder que les dates libres
+		interval = this.filtrerIntervalleParRepresentations(interval, representations);
+		
+		return interval;
+	}
+	
+	/**
+	 * Filtre l'intervalle de dates donné en supprimant les dates de représentations
+	 * @param representations
+	 * @param interval
+	 * @return (<b><i>interval</i></b>) l'intervalle filtré
+	 */
+	private ArrayList<LocalDate> filtrerIntervalleParRepresentations(ArrayList<LocalDate> interval, ArrayList<Representation> representations) {
+		
+		// pour chaque date de représentation, je cherche la date de l'intervalle qui lui correspond 
+		// et je la supprime de la liste des dates de l'intervalle
 		for (Representation representation : representations) {								
 			LocalDate representationDate = representation.getPlanning().toLocalDate();
 			for (int i = 0; i <= interval.size(); i++) {
@@ -50,7 +70,7 @@ public class Salle {
 	public String getNom() {
 		return nom;
 	}
-	protected int getJauge() {
+	public int getJauge() {
 		return jauge;
 	}
 	public Theatre getTheatre() {

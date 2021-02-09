@@ -1,6 +1,5 @@
 package dao;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -9,10 +8,10 @@ import metier.programmation.Representation;
 
 public class Dao {
 
-	public static ArrayList<Artiste> artistes = initArtiste();
-	public static ArrayList<Representation> representations = initRepresentations();
+	private static ArrayList<Artiste> artistes = initArtistes();
+	private static ArrayList<Representation> representations = initRepresentations();
 	
-	private static ArrayList<Artiste> initArtiste() {
+	private static ArrayList<Artiste> initArtistes() {
 		ArrayList<Artiste> liste = new ArrayList<Artiste>();
 		liste.add(new Artiste(
 				"Mergault", 
@@ -59,6 +58,15 @@ public class Dao {
 		representations.add(new Representation(49, planning3, 10.0));
 		
 		return representations;
+	}
+	
+	// getters
+	public static ArrayList<Representation> getRepresentations() {
+		return Dao.representations;
+	}
+	
+	public static ArrayList<Artiste> getArtistes() {
+		return Dao.artistes;
 	}
 	
 }

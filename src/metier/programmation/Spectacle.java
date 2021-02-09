@@ -8,7 +8,7 @@ public class Spectacle {
 	private String titre;
 	private String resume;
 	private String theme;
-	private String duree;
+	private int duree;
 	private String cheminImage;
 	private ArrayList<Artiste> artistes;
 	private Representations representations;
@@ -23,7 +23,7 @@ public class Spectacle {
 	public String getTheme() {
 		return theme;
 	}
-	public String getDuree() {
+	public int getDuree() {
 		return duree;
 	}
 	public String getCheminImage() {
@@ -37,16 +37,21 @@ public class Spectacle {
 	}
 
 	// setters
-	public void setTitre(String titre) {
+	public Spectacle setTitre(String titre) {
 		this.titre = titre;
+		
+		return this;
 	}
-	public void setResume(String resume) {
+	
+	public Spectacle setResume(String resume) {
 		this.resume = resume;
+		
+		return this;
 	}
 	public void setTheme(String theme) {
 		this.theme = theme;
 	}
-	public void setDuree(String duree) {
+	public void setDuree(int duree) {
 		this.duree = duree;
 	}
 	public void setCheminImage(String cheminImage) {
