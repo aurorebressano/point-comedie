@@ -1,16 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Fashi Template">
-    <meta name="keywords" content="Fashi, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Accueil</title>
-
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
@@ -25,6 +12,8 @@
     <link rel="stylesheet" href="<%= request.getContextPath() %>/vue/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/vue/css/style.css" type="text/css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/vue/css/mystyle.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/vue/css/styleAm.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/vue/css/cssAm.css" type="text/css">
 </head>
 
 <body>
@@ -43,7 +32,7 @@
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
                             <option value='yt' data-image="<%= request.getContextPath() %>/vue/img/flag-1.jpg" data-imagecss="flag yt"
-                                data-title="English">Fran√ßais</option>
+                                data-title="English">FranÁais</option>
                             <option value='yu' data-image="<%= request.getContextPath() %>/vue/img/flag-2.jpg" data-imagecss="flag yu"
                                 data-title="Bangladesh">English </option>
                         </select>
@@ -71,7 +60,7 @@
                         <div class="advanced-search">
                             <button type="button" class="category-btn" style="visibility:hidden">Categories</button>
                             <div class="input-group">
-                                <input type="text" placeholder="Rechercher une s√©ance....">
+                                <input type="text" placeholder="Rechercher une sÈance....">
                                 <button type="button"><i class="ti-search"></i></button>
                             </div>
                         </div>
@@ -96,20 +85,20 @@
                         <ul class="depart-hover">
                             <li class="active"><a href="#">Vaudeville</a></li>
                             <li><a href="#">Drames</a></li>
-                            <li><a href="#">M√©lodrames</a></li>
-                            <li><a href="#">Com√©die</a></li>
+                            <li><a href="#">MÈlodrames</a></li>
+                            <li><a href="#">ComÈdie</a></li>
                             <li><a href="#">Enfance</a></li>
-                            <li><a href="#">F√©erie</a></li>
+                            <li><a href="#">FÈerie</a></li>
                             <li><a href="#">Futurisme</a></li>
-                            <li><a href="#">Trag√©dies</a></li>
+                            <li><a href="#">TragÈdies</a></li>
                         </ul>
                     </div>
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
                         <li class="active"><a href="Accueil">Accueil</a></li>
-                        <li><a href="<%= request.getContextPath()%>/WEB-INF/vue/gestionTheatre/adminTheatre">Th√©√¢tre</a></li>
-                        <li><a href="#">Com√©diens</a>
+                        <li><a href="<%= request.getContextPath()%>/vue/gestionTheatre/adminTheatre.jsp">ThÈ‚tre</a></li>
+                        <li><a href="#">ComÈdiens</a>
                         </li>
                         <li><a href="#">Spectacles</a>
 						 <ul class="dropdown">

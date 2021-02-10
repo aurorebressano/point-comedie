@@ -1,0 +1,81 @@
+
+/*
+* spectacle_details.jsp
+*/
+
+.blog-list h2 {
+    margin-bottom: 25px;
+}
+
+.blog-list h3 {
+    color: #e7ab3c;
+}
+
+.blog-list p {
+    margin-bottom: 2px;
+}
+
+.price {
+    color: #e7ab3c;
+}
+
+.blog-price {
+	display: flex;
+	justify-content: center;
+}
+
+/*
+* spectacle_nouveau.jsp  
+*/
+
+.group-input label {
+	color: black;
+}
+
+/*
+* spectacle_modif.jsp  
+*/
+
+.modif-price {
+	text-align: center;
+}
+
+.modif-price h2 {
+	display: inline;
+	vertical-align: middle;
+}
+
+.register-form .site-btn.register-btn {
+	margin-top: 40px;
+}
+
+label[for=titre] {
+	margin-top: 25px;
+}
+
+.form-check-label {
+	margin-bottom: 0.5em;
+}
+
+.modif-price a,
+.blog-list li a {
+	display: inline-block;
+    background-color: rgb(231, 171, 60);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    padding: 1em;
+    margin: 0.5em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.modif-price a:hover,
+.blog-list li a:hover {
+    display: inline-block;
+    background-color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: rgb(231, 171, 60);
+    padding: 1em;
+    margin: 0.5em;
+}
