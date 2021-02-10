@@ -5,11 +5,15 @@ import java.util.ArrayList;
 
 import metier.programmation.Artiste;
 import metier.programmation.Representation;
+import metier.programmation.Salle;
+import metier.programmation.Theatre;
 
 public class Dao {
 
 	private static ArrayList<Artiste> artistes = initArtistes();
 	private static ArrayList<Representation> representations = initRepresentations();
+	private static ArrayList<Theatre> theatres = initTheatres();
+	private static ArrayList<Salle> salles = initSalles();
 	
 	private static ArrayList<Artiste> initArtistes() {
 		ArrayList<Artiste> liste = new ArrayList<Artiste>();
@@ -60,6 +64,29 @@ public class Dao {
 		return representations;
 	}
 	
+	private static ArrayList<Theatre> initTheatres() {
+		ArrayList<Theatre> theatres = new ArrayList<Theatre>();
+		theatres.add(new Theatre("Tandem Scène nationale", 
+		"Le TANDEM Scène nationale privilégie le croisement des arts et la découverte des courants artistiques incontournables de la"
+		+ " scène européenne et internationale (60 propositions pour 150 représentations par saison) et mène un programme ambitieux "
+		+ "d’actions culturelles.",
+		"7 place du theatre, 62 000 Arras",
+		"/vue/img/theatre/arras_theatre_1500x1000_px_01-400x350.jpg"));
+		return theatres;
+	}
+	
+	private static ArrayList<Salle> initSalles() {
+		ArrayList<Salle> salles = new ArrayList<Salle>();
+		
+		salles.add(new Salle("Malraux", 500, Dao.getTheatres().get(0)));
+		salles.add(new Salle("Obey", 140, Dao.getTheatres().get(0)));
+		salles.add(new Salle("Paul Desmarets", 90, Dao.getTheatres().get(0)));
+		salles.add(new Salle("Reybaz", 80, Dao.getTheatres().get(0)));
+		salles.add(new Salle("Salle à l'italienne", 250, Dao.getTheatres().get(0)));
+		salles.add(new Salle("Salle des concerts", 400, Dao.getTheatres().get(0)));
+		return salles;
+	}
+	
 	// getters
 	public static ArrayList<Representation> getRepresentations() {
 		return Dao.representations;
@@ -67,6 +94,14 @@ public class Dao {
 	
 	public static ArrayList<Artiste> getArtistes() {
 		return Dao.artistes;
+	}
+	
+	public static ArrayList<Theatre> getTheatres() {
+		return Dao.theatres;
+	}
+	
+	public static ArrayList<Salle> getSalles() {
+		return Dao.salles;
 	}
 	
 }

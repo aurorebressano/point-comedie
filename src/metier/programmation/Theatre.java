@@ -3,10 +3,19 @@ package metier.programmation;
 public class Theatre {
 
 	// proprietes d'instance
-	private String nom;
-	private String resume;
-	private String libAdr;
-	private String cheminImage;
+	private String 	nom;
+	private String 	resume;
+	private String 	libAdr;
+	private String 	cheminImage;
+	
+	// constructeur
+	public Theatre(String nom, String resume, String libAdr, String cheminImage) {
+		super();
+		this.nom = nom;
+		this.resume = resume;
+		this.libAdr = libAdr;
+		this.cheminImage = cheminImage;
+	}
 	
 	// getters
 	public String getNom() {

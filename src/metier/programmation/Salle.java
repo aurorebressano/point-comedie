@@ -15,6 +15,14 @@ public class Salle {
 	private int jauge;
 	private Theatre theatre;
 	
+	// constructeur
+	public Salle(String nom, int jauge, Theatre theatre) {
+		super();
+		this.nom = nom;
+		this.jauge = jauge;
+		this.theatre = theatre;
+	}
+	
 	// methode
 	/**
 	 * Rercherche, par theatre et par salle, des dates sur lesquelles aucune 

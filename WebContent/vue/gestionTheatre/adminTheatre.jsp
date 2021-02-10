@@ -1,3 +1,5 @@
+<%@page import="metier.programmation.Salle"%>
+<%@page import="dao.Dao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -34,10 +36,10 @@
 	<!-- Détails du théâtre : image, résumé et salles -->
 	<article class="theatre">
 		
-		<img alt="devanture du théâtre" src="<%= request.getContextPath()%>/vue/img/theatre/arras_theatre_1500x1000_px_01-400x350.jpg">
+		<img alt="devanture du théâtre" src="<%= request.getContextPath()%><%= Dao.getTheatres().get(0).getCheminImage() %>">
+		<!-- "<%= request.getContextPath()%>/vue/img/theatre/arras_theatre_1500x1000_px_01-400x350.jpg" -->
 		<p>
-			 Le TANDEM Scène nationale privilégie le croisement des arts et la découverte des courants artistiques incontournables de la scène européenne et internationale 
-			 (60 propositions pour 150 représentations par saison) et mène un programme ambitieux d’actions culturelles.
+			 <%= Dao.getTheatres().get(0).getResume() %>
 		</p>	
 		
 	</article>
@@ -45,13 +47,10 @@
 	<article class="salles">
 		<h2> Salles </h2>
 			<ul>
-				<li>Malraux : <span>500 places</span></li>
-				<li>Obey : <span> 140 places</span></li>
-				<li>Grand studio : <span>Résidences d'artistes</span></li>
-				<li>Paul Desmarets : <span>Cinéma</span></li>
-				<li>Reybaz : <span>80 places</span></li>
-				<li>Grande salle : <span>250 places</span></li>
-				<li>Salle des concerts : <span>400 places</span></li>
+				<% for (Salle salle : Dao.getSalles()) { %>
+					<li><%= salle.getNom() %> : <span><%= salle.getJauge() %> places</span>
+					</li>
+					<% }%>
 			</ul>
 	</article>
 
@@ -60,12 +59,12 @@
 
 		<h2>Ma programmation</h2>
 
-		<input type="text" name="spectacle" placeholder="Entrez le titre du spectacle" value="A la recherche du temps perdu">
-		<a href="<%= request.getContextPath() %>/vue/spectacle_nouveau.jsp"> créer </a> 
+		<input type="text" name="spectacle" placeholder="Entrez le titre du spectacle">
+		<a href="<%= request.getContextPath() %>/vue/gestionTheatre/spectacle_nouveau.jsp"> créer </a> 
 		
 		<div class="buttons">
-			<a href="<%= request.getContextPath() %>/vue/spectacle_details.jsp"> afficher </a>
-			<a href="<%= request.getContextPath() %>/vue/spectacle_modif.jsp"> modifier </a> 
+			<a href="<%= request.getContextPath() %>/vue/gestionTheatre/spectacle_details.jsp"> afficher </a>
+			<a href="<%= request.getContextPath() %>/vue/gestionTheatre/spectacle_modif.jsp"> modifier </a> 
 		</div>
 		
 	</article>
