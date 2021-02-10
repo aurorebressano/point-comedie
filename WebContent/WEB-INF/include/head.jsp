@@ -76,20 +76,6 @@
                             </div>
                         </div>
                     </div>
-					 <!--  <form class="form-inline my-2 my-lg-0">
-						<input class="form-control mr-sm-2" type="search"
-							placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success my-2 my-sm-0"
-							type="submit"><i class="ti-search"></i></button>
-					</form>
-						<div class="col-lg-3 text-right col-md-3">
-                        <ul class="nav-right">
-                            <!--<li class="heart-icon">
-                                	<a href="#">
-                                   		<i class="icon_heart_alt"></i>
-                                    <!--<span>1</span>
-                                	</a> 
-                            	</li>-->
                             <li class="cart-icon" style="list-style: none">
                                 <button type="submit" class="primary-btn" height="70%"> 
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
@@ -98,53 +84,9 @@
                                     <!--<span>3</span>-->
                                 </button>
                             </li>
-                                <!--<div class="cart-hover">
-                                    <div class="select-items">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="si-pic"><img src="/vue/img/select-product-1.jpg" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="si-pic"><img src="/vue/img/select-product-2.jpg" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="select-total">
-                                        <span>total:</span>
-                                        <h5>$120.00</h5>
-                                    </div>
-                                    <div class="select-button">
-                                        <a href="#" class="primary-btn view-card"></a>
-                                        <a href="#" class="primary-btn checkout-btn"></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="cart-price">$150.00</li>-->
-                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
         <div class="nav-item">
             <div class="container">
                 <div class="nav-depart">
@@ -166,7 +108,7 @@
                 <nav class="nav-menu mobile-menu">
                     <ul>
                         <li class="active"><a href="Accueil">Accueil</a></li>
-                        <li><a href="#">Théâtres</a></li>
+                        <li><a href="<%= request.getContextPath()%>/WEB-INF/vue/gestionTheatre/adminTheatre">Théâtre</a></li>
                         <li><a href="#">Comédiens</a>
                         </li>
                         <li><a href="#">Spectacles</a>
