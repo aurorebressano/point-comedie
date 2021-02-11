@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="<%= request.getContextPath() %>/vue/css/mystyle.css" type="text/css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/vue/css/styleAm.css" type="text/css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/vue/css/cssAm.css" type="text/css">
+    
+    <link rel="icon" type="image/png" href="<%= request.getContextPath() %>/vue/img/theatre/logomini.svg" />
 </head>
 
 <body>
@@ -51,7 +53,7 @@
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
                             <a href="<%= request.getContextPath() %>/Accueil">
-                                <img src="<%= request.getContextPath() %>/vue/img/theatre/logo/logo.svg" width="200px" alt="">
+                                <img src="<%= request.getContextPath() %>/vue/img/theatre/logo/logo.svg" width="250px" alt="">
                             </a>
                         </div>
                     </div>

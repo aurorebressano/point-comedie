@@ -88,6 +88,11 @@ img {
 	max-width: 100%;
 }
 
+.blog-actors img {
+    height: 230px;
+    object-fit: cover;
+}
+
 input:focus,
 select:focus,
 button:focus,
@@ -3362,6 +3367,7 @@ svg .bi-cart-plus
 .blog-details-inner .blog-detail-desc p {
 	font-size: 18px;
 	line-height: 30px;
+	color: black;
 }
 
 .blog-details-inner .blog-detail-desc p:first-of-type:first-letter {
@@ -3414,6 +3420,7 @@ svg .bi-cart-plus
 .blog-details-inner p {
 	font-size: 18px;
 	line-height: 30px;
+	color: black;
 }
 
 .blog-details-inner .tag-share {

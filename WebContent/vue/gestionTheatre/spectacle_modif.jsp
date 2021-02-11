@@ -1,3 +1,11 @@
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="metier.programmation.Representation"%>
+<%@page import="metier.programmation.Representations"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="metier.programmation.Artiste"%>
+<%@page import="metier.programmation.Spectacle"%>
+<%@page import="dao.Dao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -28,6 +36,8 @@
 <!-- Breadcrumb Form Section Begin -->
 
 <!-- Blog Details Section Begin -->
+
+<% Spectacle spectacle = Dao.getSpectacles().get(0); %>
 <section class="blog-details spad">
 	<div class="container">
 		<div class="row">
@@ -36,52 +46,22 @@
 				
 					<!-- Titre, genre et durée -->
 					<div class="blog-detail-title">
-						<h1>A la recherche du temps perdu</h1>
+						<h1><%= spectacle.getTitre() %></h1>
 						<p>
-							Comédie <span>- 55 minutes</span>
+							<%= spectacle.getTheme() %> <span>- <%= spectacle.getDuree() %> minutes</span>
 						</p>
 					</div>
 					
 					<!-- Image et description -->
 					<div class="blog-pic single-banner">
 						<img
-							src="<%= request.getContextPath() %>/vue/img/theatre/nathan-dumlao-LPRrEJU2GbQ-unsplash.jpg"
+							src="<%= request.getContextPath() %><%= spectacle.getCheminImage() %>"
 							alt="">
 					</div>
 					<div class="blog-detail-desc">
-						<p>Quand Virgil Tanasse s'intéresse à  Marcel Proust, cela
-							donne un spectacle d'une beauté et d'une élégance rares. « A
-							la recherche du temps perdu » est une rêverie poétique et
-							mélancolique sur le temps, les souvenirs et l'art.</p>
-
-						<p>Le passage sur la Madeleine est un moment d'une beauté
-							époustouflante, mais la magie opère, particulièrement, quand le
-							thème de la création artistique est abordé.</p>
-					</div>
-					<div class="blog-quote">
 						<p>
-							“ Qu’est-ce qu’une œuvre d’art sinon cette façon de contraindre
-							l’émotion à se plier aux règles de l’esprit ? ” <span>Philippe
-								SPITERI</span>
+							<%= spectacle.getResume() %>
 						</p>
-					</div>
-					<div class="blog-detail-desc">
-						<p>Le lien se resserre, alors entre l’œuvre magistrale de
-							Proust et cet objet théâtral. Théâtre littéraire, promenade de la
-							pensée, parcours poétique, ce seul en scène est totalement
-							inclassable et le poser, le temps d’un instant au Théâtre de la
-							Contrescarpe, dans le quartier de La Sorbonne, est une très bonne
-							idée. Tout de blanc vêtu, le comédien David Legrad nous fait une
-							démonstration malicieuse de la pensée avec un texte dense et
-							difficile et un travail sur le rythme, remarquable.</p>
-						<p>Que ce soit par son corps ou sa voix, les ruptures sont très
-							belles. Parfois très immobile ou se déplaçant comme un chat, il
-							nuance subtilement le ton et passe par un phrasé très posé à des
-							envolés beaucoup plus aériennes.</p>
-						<p>« À la recherche du temps perdu » est une pièce tout en
-							élégance et sensualité qui s’écoute autant qu’elle se voit. La
-							beauté des mots associée à la mise en scène et la scénographie
-							donne une sensation très particulière proche du rêve éveillé.</p>
 					</div>
 					
 					<!-- Liste des artistes -->
@@ -89,30 +69,26 @@
 						<h2>Distribution</h2>
 						<div class="row">
 							<div class="col-sm-4 single-banner">
+							<% ArrayList<Artiste> artistes = spectacle.getArtistes(); %>
+							<% for (Artiste artiste : artistes) { %>
 								<img
-									src="<%= request.getContextPath() %>/vue/img/theatre/actrice1.jpg"
+									src="<%= request.getContextPath() %><%= artiste.getCheminImage() %>"
 									alt="">
-								<p>Isabelle MERGAULT</p>
-							</div>
-							<div class="col-sm-4 single-banner">
-								<img
-									src="<%= request.getContextPath() %>/vue/img/theatre/acteur1.jpg"
-									alt="">
-								<p>Philippe SPITERI</p>
-							</div>
-							<div class="col-sm-4 single-banner">
-								<img
-									src="<%= request.getContextPath() %>/vue/img/theatre/acteur2.jpg"
-									alt="">
-								<p>Jean-Louis BARCELONA</p>
+								<p>
+								<%= artiste.getPrenom() %> 
+								<%= artiste.getNom() %>
+								</p>
+							<% } %>
 							</div>
 						</div>
+						
 					</div>
 					
 					<!-- Prix du billet -->
+					<% Representations representations = spectacle.getRepresentations(); %>
 					<div class="modif-price">
 						<h2>
-							Tarif : <span class="price">15€</span>
+							Tarif : <span class="price"><%= representations.get(0).getPrix() %>€</span>
 						</h2>
 						<a href="#"> Modifier </a>
 					</div>
@@ -122,13 +98,19 @@
 						<h2>Quand ?</h2>
 						<ul class="row">
 							<li class="col-sm-4 single-banner">
-								<h3>01 mars 2021</h3>
-								<p>20h</p>
-								<p>
-									Tandem scène nationale <span>- Douai</span>
-								</p>
-								<p>Salle Reybaz</p>
-								<a href="#"> Supprimer </a>
+							<% for (Representation representation : representations) { %>
+								  <% LocalDate date = representation.getPlanning().toLocalDate(); %>
+								  <% DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy"); %>
+								  <% String text = date.format(formatter); %>
+								  <% LocalDate parsedDate = LocalDate.parse(text, formatter); %>
+									<h3><%= parsedDate %></h3>
+									<p>20h</p>
+									<p>
+										Tandem scène nationale <span>- Douai</span>
+									</p>
+									<p>Salle Reybaz</p>
+									<a href="#"> Supprimer </a>
+							<% } %>
 							</li>
 							<li class="col-sm-4 single-banner">
 								<h3>02 mars 2021</h3>
