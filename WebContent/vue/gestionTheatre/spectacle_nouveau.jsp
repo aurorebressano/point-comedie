@@ -1,3 +1,8 @@
+<%@page import="metier.programmation.Artiste"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="metier.programmation.Theatre"%>
+<%@page import="dao.Dao"%>
+<%@page import="metier.programmation.Salle"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -37,7 +42,7 @@
                 	<!-- Debut du formulaire de creation du spectacle -->
                     <div class="register-form">
                         <h2>Mon spectacle</h2>
-                        <form action="#">
+                        <form action="/nouveau_spectacle" method="post">
                         	<div class="group-input custom-file">
 							    <input id="customFile" type="file" class="custom-file-input"  name="img">
 							    <label id="customFileLabel"class="custom-file-label" for="customFile">Choisir une image</label>
@@ -61,9 +66,15 @@
                             <div class="group-input">
                                 <label for="acteurs">Comédiens</label>
                                 <select multiple="multiple" name="acteurs">
-                                	<option value="1">Philippe SPITERI</option>
-                                	<option value="2">Isabelle MERGAULT</option>
-                                	<option value="3">Jean-Louis BARCELONA</option>
+                                <% for (Artiste artiste : Dao.getArtistes()) { %>
+                                	<option value="<%=artiste.getId()%>">
+                                		<%= artiste.getPrenom() %>
+                                		<%= artiste.getNom() %>
+                                	</option>
+                                <% } %>
+                                	
+                                	<!-- <option value="2">Isabelle MERGAULT</option>
+                                	<option value="3">Jean-Louis BARCELONA</option> -->
                                 </select>
                             </div>                   
                             
@@ -78,38 +89,21 @@
                             </div>
                             
                              <label for="salle">Salle</label>
+                             
+                             <% Theatre t = Dao.getTheatres().get(0); %>
+                             <% ArrayList<Salle> salles = t.getSalles(); %>
+                             
+                             <% for (Salle salle : salles) { %>
 							<div class="form-check">
 							    <input class="form-check-input" type="radio" name="salle" id="salle-1" value="1" checked>
-							    <label class="form-check-label" for="salle-1"> Malraux </label>
+							    <label class="form-check-label" for="salle-1"> <%= salle.getNom() %> </label>
 							</div>
-							<div class="form-check">
-							    <input class="form-check-input" type="radio" name="salle" id="salle-2" value="2">
-							    <label class="form-check-label" for="salle-2"> Obey </label>
-							</div>
-							<div class="form-check">
-							    <input class="form-check-input" type="radio" name="salle" id="salle-3" value="3">
-							    <label class="form-check-label" for="salle-3"> Grand studio </label>
-							</div>
-							<div class="form-check">
-							    <input class="form-check-input" type="radio" name="salle" id="salle-4" value="4">
-							    <label class="form-check-label" for="salle-4"> Paul Desmarets </label>
-							</div>
-							<div class="form-check">
-							    <input class="form-check-input" type="radio" name="salle" id="salle-5" value="5">
-							    <label class="form-check-label" for="salle-5"> Reybaz </label>
-							</div>
-							<div class="form-check">
-							    <input class="form-check-input" type="radio" name="salle" id="salle-6" value="6">
-							    <label class="form-check-label" for="salle-6"> Grande salle </label>
-							</div>
-							<div class="form-check">
-							    <input class="form-check-input" type="radio" name="salle" id="salle-7" value="7">
-							    <label class="form-check-label" for="salle-7"> Salle des concerts </label>
-							</div>
-                            
+							<% } %>
+							
                             <div class="mt-4 group-input">
                                 <label for="daterpz">Quand ?</label>
-                                <input type="datetime-local" name="daterpz">
+                                <input type="datetime-local" name="daterpz1">
+                              	 <!-- TODO afficher d'autres input datetime-local --> 
                             </div>
 	
 							<button type="submit" class="site-btn register-btn">ENREGISTRER</button>
