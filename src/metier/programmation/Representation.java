@@ -6,13 +6,15 @@ public class Representation
 {
 
 	// proprietes d'instance
-	private int placesDisponibles;
-	private LocalDateTime planning;
-	private Double prix;
+	private int 			id;
+	private int 			placesDisponibles;
+	private LocalDateTime 	planning;
+	private Double 			prix;
 	
 	// constructeur
-	public Representation(int placesDispo, LocalDateTime planning, Double prix) {
+	public Representation(int id, int placesDispo, LocalDateTime planning, Double prix) {
 		super();
+		this.id = id;
 		this.placesDisponibles = placesDispo;
 		this.planning = planning;
 		this.prix = prix;
@@ -39,6 +41,10 @@ public class Representation
 	public Double getPrix() 
 	{
 		return prix;
+	} 
+
+	public int getId() {
+		return id;
 	}
 	
 	// setters
@@ -55,6 +61,10 @@ public class Representation
 	public void setPrix(Double prix) 
 	{
 		this.prix = prix;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

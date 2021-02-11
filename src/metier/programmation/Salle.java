@@ -11,13 +11,15 @@ import dao.Dao;
 public class Salle {
 
 	// prorpietes d'instance
-	private String nom;
-	private int jauge;
+	private int 	id;
+	private String 	nom;
+	private int 	jauge;
 	private Theatre theatre;
 	
 	// constructeur
-	public Salle(String nom, int jauge, Theatre theatre) {
+	public Salle(int id, String nom, int jauge, Theatre theatre) {
 		super();
+		this.id = id;
 		this.nom = nom;
 		this.jauge = jauge;
 		this.theatre = theatre;
@@ -82,6 +84,11 @@ public class Salle {
 		return interval;
 	}
 	
+	@Override
+	public String toString() {
+		return "Salle [nom=" + nom + ", jauge=" + jauge + ", theatre=" + theatre + "]";
+	}
+
 	// getters
 	public String getNom() {
 		return nom;
@@ -92,6 +99,10 @@ public class Salle {
 	public Theatre getTheatre() {
 		return theatre;
 	}
+
+	public int getId() {
+		return id;
+	}
 	
 	// setters
 	public void setNom(String nom) {
@@ -99,5 +110,9 @@ public class Salle {
 	}
 	public void setTheatre(Theatre theatre) {
 		this.theatre = theatre;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

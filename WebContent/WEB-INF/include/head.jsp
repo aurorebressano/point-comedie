@@ -17,7 +17,6 @@
 </head>
 
 <body>
-<form action="Panier" method="post">
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -96,7 +95,7 @@
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="Accueil">Accueil</a></li>
+                        <li><a href="Accueil">Accueil</a></li>
                         <li><a href="<%= request.getContextPath()%>/vue/gestionTheatre/adminTheatre.jsp">Théâtre</a></li>
                         <li><a href="#">Comédiens</a>
                         </li>
