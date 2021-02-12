@@ -1006,7 +1006,7 @@ Ajout Projet Pointcomedie.com
 	left: 35px;
 	top: 30px;
 	border: 13px solid #ffffff;
-	content: "";
+	/* content: ""; */
 	opacity: 0.3;
 	width: calc(100% - 70px);
 	height: calc(100% - 60px);

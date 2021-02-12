@@ -1,3 +1,5 @@
+<%@page import="metier.programmation.Theatre"%>
+<%@page import="metier.programmation.Salle"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="metier.programmation.Representation"%>
@@ -67,22 +69,25 @@
 					<!-- Liste des artistes -->
 					<div class="blog-actors">
 						<h2>Distribution</h2>
-						<div class="row">
-							<div class="col-sm-4 single-banner">
+							<ul class="row">
 							<% ArrayList<Artiste> artistes = spectacle.getArtistes(); %>
 							<% for (Artiste artiste : artistes) { %>
-								<img
-									src="<%= request.getContextPath() %><%= artiste.getCheminImage() %>"
-									alt="">
-								<p>
-								<%= artiste.getPrenom() %> 
-								<%= artiste.getNom() %>
-								</p>
+								<li class="col-sm-4 single-banner">
+									<img
+										src="<%= request.getContextPath() %><%= artiste.getCheminImage() %>"
+										alt="">
+									<p>
+									<%= artiste.getPrenom() %> 
+									<%= artiste.getNom() %>
+									</p>
+								</li>
 							<% } %>
-							</div>
-						</div>
-						
+							</ul>
 					</div>
+						
+				</div>
+				
+				<div class="blog-details-inner">
 					
 					<!-- Prix du billet -->
 					<% Representations representations = spectacle.getRepresentations(); %>
@@ -97,50 +102,33 @@
 					<div class="blog-list">
 						<h2>Quand ?</h2>
 						<ul class="row">
-							<li class="col-sm-4 single-banner">
+							<% Salle salle = spectacle.getRepresentations().getSalle(); %>
 							<% for (Representation representation : representations) { %>
-								  <% LocalDate date = representation.getPlanning().toLocalDate(); %>
-								  <% DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy"); %>
-								  <% String text = date.format(formatter); %>
-								  <% LocalDate parsedDate = LocalDate.parse(text, formatter); %>
-									<h3><%= parsedDate %></h3>
-									<p>20h</p>
-									<p>
-										Tandem scène nationale <span>- Douai</span>
-									</p>
-									<p>Salle Reybaz</p>
-									<a href="#"> Supprimer </a>
+								<li class="col-sm-4 single-banner">
+									  <%-- <% LocalDate date = representation.getPlanning().toLocalDate(); %>
+									  <% DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); %>
+									  <% String text = date.format(formatter); %>
+									  <% LocalDate parsedDate = LocalDate.parse(text, formatter); %> --%>
+										<h3><%= representation.getPlanning().toLocalDate() %></h3>
+										<p><%= representation.getPlanning().toLocalTime() %></p>
+										<p>
+											<%= Dao.getTheatres().get(0).getNom() %> <!-- <span>- Douai</span> -->
+										</p>
+										<p>Salle <%= salle.getNom() %></p>
+										<a href="#"> Supprimer </a>
+										</li>
 							<% } %>
-							</li>
-							<li class="col-sm-4 single-banner">
-								<h3>02 mars 2021</h3>
-								<p>20h</p>
-								<p>
-									Tandem scène nationale <span>- Douai</span>
-								</p>
-								<p>Salle Reybaz</p>
-								<a href="#"> Supprimer </a>
-							</li>
-							<li class="col-sm-4 single-banner">
-								<h3>03 mars 2021</h3>
-								<p>19h30</p>
-								<p>
-									Tandem scène nationale <span>- Douai</span>
-								</p>
-								<p>Salle Reybaz</p>
-								<a href="#"> Supprimer </a>
-							</li>
 						</ul>
 					</div>
-					
+				</div>
+				
+				<div class="blog-details-inner">	
 					<!-- Tags et réseaux sociaux -->
 					<div class="tag-share">
 						<div class="details-tag">
 							<ul>
 								<li><i class="fa fa-tags"></i></li>
-								<li>Classique</li>
-								<li>Boulevard</li>
-								<li>Comédie</li>
+								<li><%= spectacle.getTheme() %></li>
 							</ul>
 						</div>
 						<div class="blog-share">

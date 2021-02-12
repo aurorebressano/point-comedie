@@ -3,6 +3,10 @@
 * spectacle_details.jsp
 */
 
+.blog-actors ul {
+	list-style: none;
+}
+
 .blog-list h2 {
     margin-bottom: 25px;
 }
@@ -14,6 +18,10 @@
 .blog-list p {
     margin-bottom: 2px;
     color: black;
+}
+
+.blog-list ul {
+	list-style: none;
 }
 
 .price {
