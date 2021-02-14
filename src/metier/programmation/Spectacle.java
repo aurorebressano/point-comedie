@@ -2,6 +2,8 @@ package metier.programmation;
 
 import java.util.ArrayList;
 
+import dao.Dao;
+
 public class Spectacle {
 
 	// propriétés d'instance
@@ -10,6 +12,7 @@ public class Spectacle {
 	private String 				resume;
 	private String 				theme;
 	private int 				duree;
+	private double 				prix;
 	private String 				cheminImage;
 	private ArrayList<Artiste> 	artistes;
 	private Representations 	representations;
@@ -22,6 +25,7 @@ public class Spectacle {
 		String 				resume, 
 		String 				theme, 
 		int 				duree, 
+		double 				prix,
 		String 				cheminImage, 
 		ArrayList<Artiste> 	artistes, 
 		Representations 	representations
@@ -31,7 +35,8 @@ public class Spectacle {
 		this.titre	         	= titre;         	
 		this.resume				= resume;               
 		this.theme				= theme;                
-		this.duree				= duree;         
+		this.duree				= duree;               
+		this.prix				= prix;         
 		this.cheminImage		= cheminImage;     
 		this.artistes			= artistes;        	
 		this.representations	= representations;
@@ -50,6 +55,9 @@ public class Spectacle {
 	public int getDuree() {
 		return duree;
 	}
+	public double getPrix() {
+		return prix;
+	}
 	public String getCheminImage() {
 		return cheminImage;
 	}
@@ -58,6 +66,19 @@ public class Spectacle {
 	}
 	public Representations getRepresentations() {
 		return representations;
+	}
+	
+	public Representation findRepresentation(int id) {
+		Representation representation = null;
+		
+		for (Representation _representation : representations) {
+			if (_representation.getId() == id) {
+				representation = _representation;
+				break;
+			}
+		}
+		
+		return representation;
 	}
 
 	public int getId() {
@@ -79,6 +100,9 @@ public class Spectacle {
 	}
 	public void setDuree(int duree) {
 		this.duree = duree;
+	}
+	public void setPrix(double prix) {
+		this.prix = prix;
 	}
 	public void setCheminImage(String cheminImage) {
 		this.cheminImage = cheminImage;

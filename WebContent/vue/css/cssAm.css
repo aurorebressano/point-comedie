@@ -79,7 +79,10 @@
     width: 50%;
 }
 
-.prog a {
+
+.button,
+.prog a,
+.prog button {
     display: inline-block;
     background-color: rgb(231, 171, 60);
     text-transform: uppercase;
@@ -88,9 +91,13 @@
     padding: 1em;
     margin: 0.5em;
     transition: background-color 0.3s, color 0.3s;
+    
+    border: none;
 }
 
-.prog a:hover {
+.button:hover,
+.prog a:hover,
+.prog button:hover {
     display: inline-block;
     background-color: white;
     text-transform: uppercase;

@@ -2,7 +2,10 @@ package dao;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 
+import metier.users.Administrateur;
+import metier.users.Password;
 import metier.programmation.Artiste;
 import metier.programmation.Representation;
 import metier.programmation.Representations;
@@ -12,11 +15,23 @@ import metier.programmation.Theatre;
 
 public class Dao {
 
+	private static ArrayList<Administrateur> administrateurs = initAdministrateurs();
 	private static ArrayList<Artiste> artistes = initArtistes();
 	private static ArrayList<Representation> representations = initRepresentations();
 	private static ArrayList<Theatre> theatres = initTheatres();
 	private static ArrayList<Salle> salles = initSalles();
 	private static ArrayList<Spectacle> spectacles = initSpectacles();
+	
+	private static ArrayList<Administrateur> initAdministrateurs() {
+		ArrayList<Administrateur> liste = new ArrayList<Administrateur>();
+		liste.add(new Administrateur("A1", "Muller", "Dominique", new Password("1234"), "email1@test.fr"));
+		liste.add(new Administrateur("A2", null, "Paul", new Password("1234"), "email2@test.fr"));
+		liste.add(new Administrateur("A3", "Durand", "Jean Pierre", new Password("1234"), "email3@test.fr"));
+		liste.add(new Administrateur("A4", "LaChose", "Gertrude", new Password("1234"), "email4@test.fr"));
+		liste.add(new Administrateur("A5", "LeMachin", "Jacques", new Password("1234"), "email5@test.fr"));
+		liste.add(new Administrateur("A6", "root", "root", new Password("4321"), "root@test.fr"));
+		return liste;
+	}
 	
 	private static ArrayList<Artiste> initArtistes() {
 		ArrayList<Artiste> liste = new ArrayList<Artiste>();
@@ -91,6 +106,7 @@ public class Dao {
 				+ "rêve éveillé.",
 				"Jeunesse",
 				55,
+				10.0,
 				"/vue/img/theatre/nathan-dumlao-LPRrEJU2GbQ-unsplash.jpg",
 				artistes,
 				representations));
@@ -116,8 +132,8 @@ public class Dao {
 		ArrayList<Theatre> theatres = new ArrayList<Theatre>();
 		theatres.add(new Theatre(
 		1, 
-		"Tandem Scène nationale", 
-		"Le TANDEM Scène nationale privilégie le croisement des arts et la découverte des courants artistiques incontournables de la"
+		"Tandem Scene nationale", 
+		"Le TANDEM scene nationale privilégie le croisement des arts et la découverte des courants artistiques incontournables de la"
 		+ " scène européenne et internationale (60 propositions pour 150 représentations par saison) et mène un programme ambitieux "
 		+ "d’actions culturelles.",
 		"7 place du theatre, 62 000 Arras",
@@ -170,5 +186,56 @@ public class Dao {
 	public static ArrayList<Spectacle> getSpectacles() {
 		return spectacles;
 	}
+
+	public static ArrayList<Administrateur> getAdministrateurs() {
+		return administrateurs;
+	}
 	
+	public static Administrateur getAdministrateur(String idAdministrateur) {
+		Administrateur Administrateur = new Administrateur(idAdministrateur);
+		return getAdministrateur(Administrateur);
+	}
+	
+	public static Administrateur getAdministrateur(Administrateur Administrateur) {
+		Administrateur trouve = null;
+		if (administrateurs.contains(Administrateur)) trouve = administrateurs.get(administrateurs.indexOf(Administrateur));
+		return trouve;
+	}
+	
+	public static Administrateur getAdministrateur(String email, Password pw) {
+
+		Administrateur trouve = null;
+		
+		// recherche de l'Administrateur dans la liste
+		// il faut coder la methode equals dans Administrateur
+		if (email != null && pw != null) {
+			for (Administrateur administrateur : Dao.administrateurs) {
+				if (administrateur != null && 
+					email.equals(administrateur.getEmail()) && 
+					pw.verifPW(administrateur.getPw())
+				) {
+					 trouve = administrateur;
+				}
+			}
+		}
+		return trouve;
+	}
+
+	// setters
+	public static void setAdministrateurs(ArrayList<Administrateur> administrateurs) {
+		Dao.administrateurs = administrateurs;
+	}
+
+	public static Spectacle findSpectacle(int id) {
+		Spectacle spectacle = null;
+		
+		for (Spectacle _spectacle : Dao.spectacles) {
+			if (_spectacle.getId() == id) {
+				spectacle = _spectacle;
+				break;
+			}
+		}
+		
+		return spectacle;
+	}
 }

@@ -56,17 +56,16 @@
 
 	<!-- formulaire pour accéder aux spectacles -->
 	<article class="prog">
-
 		<h2>Ma programmation</h2>
 
-		<input type="text" name="spectacle" placeholder="Entrez le titre du spectacle">
-		<a href="<%= request.getContextPath() %>/vue/gestionTheatre/spectacle_nouveau.jsp"> créer </a> 
-		
-		<div class="buttons">
-			<a href="<%= request.getContextPath() %>/vue/gestionTheatre/spectacle_details.jsp"> afficher </a>
-			<a href="<%= request.getContextPath() %>/vue/gestionTheatre/spectacle_modif.jsp"> modifier </a> 
-		</div>
-		
+		<form action="<%= request.getContextPath() %>/vue/gestionTheatre/spectacle_details.jsp" method="GET">
+			<input type="text" name="spectacle" placeholder="Entrez l'ID du spectacle">
+			<button type="submit"> afficher </button>
+			
+			<div class="buttons">
+				<a href="<%= request.getContextPath() %>/vue/gestionTheatre/spectacle_nouveau.jsp"> créer </a> 
+			</div>
+		</form>
 	</article>
 	
 	</section>

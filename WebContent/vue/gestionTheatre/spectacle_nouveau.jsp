@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <a href="#"><i class="fa fa-home"></i>Administrer mon théâtre</a>
+                        <a href="#"><i class="fa fa-home"></i> Administrer mon théâtre</a>
                         <span>Nouveau spectacle</span>
                     </div>
                 </div>
@@ -41,8 +41,8 @@
                 
                 	<!-- Debut du formulaire de creation du spectacle -->
                     <div class="register-form">
-                        <h2>Mon spectacle</h2>
-                        <form action="/nouveau_spectacle" method="post">
+                        <h2>Mon spectacle <%= request.getSession(true).getAttribute("administrateur") %></h2>
+                        <form action="<%= request.getContextPath() %>/nouveau_spectacle" method="post">
                         	<div class="group-input custom-file">
 							    <input id="customFile" type="file" class="custom-file-input"  name="img">
 							    <label id="customFileLabel"class="custom-file-label" for="customFile">Choisir une image</label>
@@ -72,9 +72,6 @@
                                 		<%= artiste.getNom() %>
                                 	</option>
                                 <% } %>
-                                	
-                                	<!-- <option value="2">Isabelle MERGAULT</option>
-                                	<option value="3">Jean-Louis BARCELONA</option> -->
                                 </select>
                             </div>                   
                             

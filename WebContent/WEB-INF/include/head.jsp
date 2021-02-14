@@ -29,7 +29,11 @@
         <div class="header-top">
             <div class="container">
                 <div class="ht-right">
-                    <a href="#" class="login-panel"><i class="fa fa-user"></i>Connexion</a>
+                	<% if (request.getSession().getAttribute("administrateur") != null) { %>
+                	 <a href="<%= request.getContextPath() %>/session/deconnexion" class="login-panel"><i class="fa fa-user"></i>Déconnexion</a>
+               	 	<% } else { %>
+                	 <a href="<%= request.getContextPath() %>/session/connexion" class="login-panel"><i class="fa fa-user"></i>Connexion</a>
+                  	<% } %>
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
                             <option value='yt' data-image="<%= request.getContextPath() %>/vue/img/flag-1.jpg" data-imagecss="flag yt"
