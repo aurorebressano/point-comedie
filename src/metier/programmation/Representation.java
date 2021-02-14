@@ -1,14 +1,24 @@
 package metier.programmation;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Representation 
 {
 
 	// proprietes d'instance
-	private int placesDisponibles;
-	private LocalDate planning;
-	private Double prix;
+	private int 			id;
+	private int 			placesDisponibles;
+	private LocalDateTime 	planning;
+	private Double 			prix;
+	
+	// constructeur
+	public Representation(int id, int placesDispo, LocalDateTime planning, Double prix) {
+		super();
+		this.id = id;
+		this.placesDisponibles = placesDispo;
+		this.planning = planning;
+		this.prix = prix;
+	}
 	
 	// methodes
 	public int calculerPlacesDisponibles() 
@@ -23,7 +33,7 @@ public class Representation
 		return placesDisponibles;
 	}
 
-	public LocalDate getPlanning() 
+	public LocalDateTime getPlanning() 
 	{
 		return planning;
 	}
@@ -31,6 +41,10 @@ public class Representation
 	public Double getPrix() 
 	{
 		return prix;
+	} 
+
+	public int getId() {
+		return id;
 	}
 	
 	// setters
@@ -39,7 +53,7 @@ public class Representation
 		this.placesDisponibles = placesDisponibles;
 	}
 
-	public void setPlanning(LocalDate planning) 
+	public void setPlanning(LocalDateTime planning) 
 	{
 		this.planning = planning;
 	}
@@ -47,6 +61,10 @@ public class Representation
 	public void setPrix(Double prix) 
 	{
 		this.prix = prix;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

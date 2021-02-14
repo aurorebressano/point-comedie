@@ -1,16 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Fashi Template">
-    <meta name="keywords" content="Fashi, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Accueil</title>
-
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
@@ -25,10 +12,13 @@
     <link rel="stylesheet" href="<%= request.getContextPath() %>/vue/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/vue/css/style.css" type="text/css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/vue/css/mystyle.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/vue/css/styleAm.css" type="text/css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/vue/css/cssAm.css" type="text/css">
+    
+    <link rel="icon" type="image/png" href="<%= request.getContextPath() %>/vue/img/theatre/logomini.svg" />
 </head>
 
 <body>
-<form action="Panier" method="post">
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -43,7 +33,7 @@
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
                             <option value='yt' data-image="<%= request.getContextPath() %>/vue/img/flag-1.jpg" data-imagecss="flag yt"
-                                data-title="English">Fran√ßais</option>
+                                data-title="English">FranÁais</option>
                             <option value='yu' data-image="<%= request.getContextPath() %>/vue/img/flag-2.jpg" data-imagecss="flag yu"
                                 data-title="Bangladesh">English </option>
                         </select>
@@ -63,7 +53,7 @@
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
                             <a href="<%= request.getContextPath() %>/Accueil">
-                                <img src="<%= request.getContextPath() %>/vue/img/theatre/logo/logo.svg" width="200px" alt="">
+                                <img src="<%= request.getContextPath() %>/vue/img/theatre/logo/logo.svg" width="250px" alt="">
                             </a>
                         </div>
                     </div>
@@ -71,25 +61,11 @@
                         <div class="advanced-search">
                             <button type="button" class="category-btn" style="visibility:hidden">Categories</button>
                             <div class="input-group">
-                                <input type="text" placeholder="Rechercher une s√©ance....">
+                                <input type="text" placeholder="Rechercher une sÈance....">
                                 <button type="button"><i class="ti-search"></i></button>
                             </div>
                         </div>
                     </div>
-					 <!--  <form class="form-inline my-2 my-lg-0">
-						<input class="form-control mr-sm-2" type="search"
-							placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success my-2 my-sm-0"
-							type="submit"><i class="ti-search"></i></button>
-					</form>
-						<div class="col-lg-3 text-right col-md-3">
-                        <ul class="nav-right">
-                            <!--<li class="heart-icon">
-                                	<a href="#">
-                                   		<i class="icon_heart_alt"></i>
-                                    <!--<span>1</span>
-                                	</a> 
-                            	</li>-->
                             <li class="cart-icon" style="list-style: none">
                                 <button type="submit" class="primary-btn" height="70%"> 
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
@@ -98,53 +74,9 @@
                                     <!--<span>3</span>-->
                                 </button>
                             </li>
-                                <!--<div class="cart-hover">
-                                    <div class="select-items">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="si-pic"><img src="/vue/img/select-product-1.jpg" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="si-pic"><img src="/vue/img/select-product-2.jpg" alt=""></td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="select-total">
-                                        <span>total:</span>
-                                        <h5>$120.00</h5>
-                                    </div>
-                                    <div class="select-button">
-                                        <a href="#" class="primary-btn view-card"></a>
-                                        <a href="#" class="primary-btn checkout-btn"></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="cart-price">$150.00</li>-->
-                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
         <div class="nav-item">
             <div class="container">
                 <div class="nav-depart">
@@ -154,23 +86,34 @@
                         <ul class="depart-hover">
                             <li class="active"><a href="#">Vaudeville</a></li>
                             <li><a href="#">Drames</a></li>
-                            <li><a href="#">M√©lodrames</a></li>
-                            <li><a href="#">Com√©die</a></li>
+                            <li><a href="#">MÈlodrames</a></li>
+                            <li><a href="#">ComÈdie</a></li>
                             <li><a href="#">Enfance</a></li>
-                            <li><a href="#">F√©erie</a></li>
+                            <li><a href="#">FÈerie</a></li>
                             <li><a href="#">Futurisme</a></li>
-                            <li><a href="#">Trag√©dies</a></li>
+                            <li><a href="#">TragÈdies</a></li>
                         </ul>
                     </div>
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="Accueil">Accueil</a></li>
-                        <li><a href="#">Th√©√¢tres</a></li>
-                        <li><a href="#">Com√©diens</a>
+                        <li><a href="Accueil">Accueil</a></li>
+                        <li><a href="<%= request.getContextPath()%>/vue/gestionTheatre/adminTheatre.jsp">ThÈ‚tre</a></li>
+                        <li><a href="#">ComÈdiens</a>
                         </li>
-                        <li><a href="#">Spectacles</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Spectacles</a>
+						 <ul class="dropdown">
+                                <li><a href="#">Rechercher </a></li>
+                                <li><a href="#">Mes favoris</a></li>
+                      
+                            </ul> </li>
+                        
+                      						<li><a href="./contact.html">Contact</a>
+						 <ul class="dropdown">
+                                <li><a  href="#">Qui sommes-nous ?</a></li>
+                             
+                      
+                            </ul></li>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>

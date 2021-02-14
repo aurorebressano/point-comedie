@@ -1,12 +1,27 @@
 package metier.programmation;
 
+import java.util.ArrayList;
+
+import dao.Dao;
+
 public class Theatre {
 
 	// proprietes d'instance
-	private String nom;
-	private String resume;
-	private String libAdr;
-	private String cheminImage;
+	private int 	id;
+	private String 	nom;
+	private String 	resume;
+	private String 	libAdr;
+	private String 	cheminImage;
+	
+	// constructeur
+	public Theatre(int id, String nom, String resume, String libAdr, String cheminImage) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.resume = resume;
+		this.libAdr = libAdr;
+		this.cheminImage = cheminImage;
+	}
 	
 	// getters
 	public String getNom() {
@@ -21,6 +36,14 @@ public class Theatre {
 	public String getCheminImage() {
 		return cheminImage;
 	}
+
+	public int getId() {
+		return id;
+	}
+	
+	public ArrayList<Salle> getSalles() {
+		return Dao.getSallesByTheatre(this);
+	}
 	
 	// setters
 	public void setNom(String nom) {
@@ -34,6 +57,10 @@ public class Theatre {
 	}
 	public void setCheminImage(String cheminImage) {
 		this.cheminImage = cheminImage;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }

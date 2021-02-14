@@ -1,0 +1,101 @@
+@charset "ISO-8859-1";
+
+#admin {
+    display: grid;
+    grid-template: 0.5fr 2fr 1fr / 1fr 1fr;
+}
+
+#admin h1 {
+    text-align: center;
+    grid-area: 1 / 1 / 1 / -1;
+    padding: 1em;
+}
+
+#admin h2 {
+    color: rgb(231, 171, 60);
+    padding: 1em;
+}
+
+.theatre {
+    display: grid;
+    grid-template: 80% 20% / 1fr;
+    grid-row: 2;
+    grid-column: 1;
+}
+
+.theatre img {
+    object-fit: cover;
+    grid-row: 1;
+    margin: auto;
+}
+
+.theatre p {
+    padding: 1em;
+    color: black;
+}
+
+.salles {
+    display: grid;
+    grid-template: 20% 80% / 1fr;
+    grid-row: 2;
+    grid-column: 2;
+    padding: 1em;
+}
+
+.salles h2 {
+	grid-row: 1;
+    text-align: center;
+}
+
+.salles ul {
+	grid-row: 2;
+    text-align: center;
+    list-style: none;
+    padding: 1em;
+    
+}
+
+.salles ul li {
+    font-weight: bold;
+    color: rgb(231, 171, 60);
+    padding: 0.5em;
+}
+
+.salles ul li > span {
+    font-weight: normal;
+    font-style: italic;
+    color: black;
+}
+
+.prog {
+    grid-row: 3;
+    grid-column: 1;
+    padding: 1em;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.prog input {
+    width: 50%;
+}
+
+.prog a {
+    display: inline-block;
+    background-color: rgb(231, 171, 60);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    padding: 1em;
+    margin: 0.5em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.prog a:hover {
+    display: inline-block;
+    background-color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: rgb(231, 171, 60);
+    padding: 1em;
+    margin: 0.5em;
+}

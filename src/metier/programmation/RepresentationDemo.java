@@ -119,7 +119,7 @@ public class RepresentationDemo
 		return comediens;
 	}
 
-	public void setComediens(ArrayList<String> comédiens) 
+	public void setComediens(ArrayList<String> comediens) 
 	{
 		this.comediens = comediens;
 	}
@@ -220,7 +220,7 @@ public class RepresentationDemo
 	@Override
 	public String toString() {
 		return "RepresentationDemo [id=" + id + ", titre=" + titre + ", image=" + image + ", resume=" + resume
-				+ ", theme=" + theme + ", metteurEnScene=" + metteurEnScene + ", comédiens=" + comediens + ", salle="
+				+ ", theme=" + theme + ", metteurEnScene=" + metteurEnScene + ", comï¿½diens=" + comediens + ", salle="
 				+ salle + ", theatre=" + theatre + ", ville=" + ville + ", date=" + date + ", heure=" + heure
 				+ ", Duree=" + duree + ", prix=" + prix + ", nbplaces=" + nbplaces + "]";
 	}

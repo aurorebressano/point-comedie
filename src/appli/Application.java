@@ -1,24 +1,34 @@
 package appli;
 
-import java.time.LocalDateTime;
+import java.text.DateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
+
+import dao.Dao;
+import metier.programmation.Theatre;
 
 public class Application {
-
+	
 	/**
-	 * Rercherche, par theatre et par salle, des dates sur lesquelles aucune 
-	 * représentation n'est programmée
+	 * Generation des dates qui se situent dans un intervalle de dates donne
 	 * 
-	 * @return (<b><i>datesDispo</i></b>) la liste des dates disponibles
+	 * @param start	date de debut de periode
+	 * @param end	date de fin de periode
+	 * 
+	 * @return (<b><i>datesRange</i></b>) la liste des dates qui se situent entre <b><i>start</i></b> et <b><i>end</i></b>
 	 */
-	public ArrayList<LocalDateTime> rechercherDatesDispo() {
+	public static ArrayList<LocalDate> getDatesRange (LocalDate start, LocalDate end) {
 		
-		// je recupere le calendrier 
+		ArrayList<LocalDate> datesRange = new ArrayList<LocalDate>();
 		
-		Calendar calendar = Calendar.getInstance();
-		
-		ArrayList<LocalDateTime> datesDispo = new ArrayList<LocalDateTime>();
-		return datesDispo;
+		LocalDate localDate = start;
+		while (localDate.isBefore(end)) {
+		    datesRange.add(localDate);
+		    // Set up the next loop.
+		    localDate = localDate.plusDays(1);
+		}
+		return datesRange;
 	}
+	
 }
